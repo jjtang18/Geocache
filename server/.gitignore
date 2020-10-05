@@ -3,5 +3,3 @@ node_modules
 public/bundle.*
 .env
 .env.build
-
-.vercel
