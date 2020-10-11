@@ -1,13 +1,27 @@
-import React from "react";
-import { ActivityIndicator } from "react-native";
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
 
-import { List, ListItem } from "../components/List";
+import { List, ListItem } from '../components/List';
+import { geoFetch } from '../util/api';
 
 class ListScreen extends React.Component {
   state = {
     loading: true,
-    list: []
+    list: [],
   };
+
+  componentDidMount() {
+    geoFetch('/geocache/list')
+      .then(response => {
+        this.setState({
+          loading: false,
+          list: response.result,
+        });
+      })
+      .catch(error => {
+        console.log('list error', error);
+      });
+  }
 
   render() {
     if (this.state.loading) {
@@ -21,7 +35,7 @@ class ListScreen extends React.Component {
           <ListItem
             title={item.title}
             isOdd={index % 2}
-            onPress={() => this.props.navigation.navigate("Details", { item })}
+            onPress={() => this.props.navigation.navigate('Details', { item })}
           />
         )}
       />

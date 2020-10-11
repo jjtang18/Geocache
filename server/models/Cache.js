@@ -6,4 +6,4 @@ const CacheSchema = new mongoose.Schema({
     longitude: { type: Number, required: true },
     foundCount: { type: Number, default: 0 }
 });
-module.exports = mongoose.model('Cache')
+module.exports = mongoose.model('Cache', CacheSchema)
