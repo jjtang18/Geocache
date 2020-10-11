@@ -1,4 +1,4 @@
-const BASE_URL = 'http://geocache.jjtang18.vercel.app';
+const BASE_URL = 'https://geocache.jjtang18.vercel.app';
 
 export const geoFetch = (path, options = {}) => {
     return fetch(`${BASE_URL}/api${path}`, options)
