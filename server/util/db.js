@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 let isConnected;
 
 const DB_URL =
-    'mongodb+srv://tjin427:criptigger@geocache.45jes.mongodb.net/Geocache?retryWrites=true&w=majority';
+    'mongodb+srv://tjin427:trinity@geocachedata.uabai.mongodb.net/geocacheData?retryWrites=true&w=majority';
 
 const connectToDatabase = () => {
     if (isConnected) {
