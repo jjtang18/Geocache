@@ -1,5 +1,10 @@
 
-const app = require('../../util/configureApi');
+const express = require('express');
+const helmet = require('helmet');
+const moment = require('moment');
+const bodyParser = require('body-parser');
+
+const app = express();
 
 app.use(helmet());
 app.use(bodyParser.json());

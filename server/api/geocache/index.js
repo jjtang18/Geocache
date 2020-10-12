@@ -1,27 +1,19 @@
-const app = require('../../util/configureApi');
-const Cache = require('../../models/Cache');
-const connectDB = require('../../util/db');
 
+const express = require('express');
+const helmet = require('helmet');
+const moment = require('moment');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.post('*', (req, res) => {
-    connectDB()
-        .then(() => {
-            return Cache.create({
-                title: 'Test',
-                // description: 'This is a description',
-                // latitude: 123,
-                // longitude: 123,
-            });
-        })
-        .then(cacheItem => {
-            res.status(200).json({
-                result: cacheItem,
-            });
-        })
-        .catch(error => {
-            res.status(error.statusCode || 500).json({
-                error: error.message,
-            });
-        });
+    res.status(200).json({
+        result: []
+    });
+
 });
 
 module.exports = app;

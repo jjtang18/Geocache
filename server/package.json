@@ -19,7 +19,6 @@
     "sirv-cli": "^1.0.1"
   },
   "scripts": {
-    "seed": "node ./seed/seed.js",
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",

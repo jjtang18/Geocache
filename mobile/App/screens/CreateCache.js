@@ -3,7 +3,6 @@ import { ScrollView, View } from "react-native";
 
 import { TextField } from "../components/Form";
 import { Button } from "../components/Button";
-import { geoFetch } from '../util/api';
 
 class CreateCache extends React.Component {
   state = {
@@ -15,36 +14,11 @@ class CreateCache extends React.Component {
   };
 
   onCurrentLocationPress = () => {
-    navigator.geolocation.getCurrentPosition(res => {
-      if (res && res.coords) {
-        this.setState({
-          latitude: res.coords.latitude.toString(),
-          longitude: res.coords.longitude.toString()
-        })
-      }
-    });
+    alert("todo!");
   };
 
   onSavePress = () => {
-    const { title, description, latitude, longitude } = this.state;
-    this.setState({ loading: true }, () => {
-      geoFetch(`/geocache`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, description, latitude, longitude })
-      })
-      .then(() => {
-        this.props.navigation.popToTop();
-      })
-      .catch(error => {
-        console.log('create cache error', error);
-      })
-      .finally(() => {
-        this.setState({ loading: false });
-      })
-    });
+    alert("todo!");
   };
 
   render() {
