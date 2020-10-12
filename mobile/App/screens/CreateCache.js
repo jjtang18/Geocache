@@ -1,8 +1,8 @@
-import React from 'react';
-import { ScrollView, View } from 'react-native';
+import React from "react";
+import { ScrollView, View } from "react-native";
 
-import { TextField } from '../components/Form';
-import { Button } from '../components/Button';
+import { TextField } from "../components/Form";
+import { Button } from "../components/Button";
 import { geoFetch } from '../util/api';
 
 class CreateCache extends React.Component {
@@ -11,7 +11,7 @@ class CreateCache extends React.Component {
     description: null,
     latitude: null,
     longitude: null,
-    loading: false,
+    loading: false
   };
 
   onCurrentLocationPress = () => {
@@ -19,8 +19,8 @@ class CreateCache extends React.Component {
       if (res && res.coords) {
         this.setState({
           latitude: res.coords.latitude.toString(),
-          longitude: res.coords.longitude.toString(),
-        });
+          longitude: res.coords.longitude.toString()
+        })
       }
     });
   };
@@ -33,17 +33,17 @@ class CreateCache extends React.Component {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, description, latitude, longitude }),
+        body: JSON.stringify({ title, description, latitude, longitude })
       })
-        .then(() => {
-          this.props.navigation.popToTop();
-        })
-        .catch(error => {
-          console.log('create cache error', error);
-        })
-        .finally(() => {
-          this.setState({ loading: false });
-        });
+      .then(() => {
+        this.props.navigation.popToTop();
+      })
+      .catch(error => {
+        console.log('create cache error', error);
+      })
+      .finally(() => {
+        this.setState({ loading: false });
+      })
     });
   };
 
@@ -76,7 +76,7 @@ class CreateCache extends React.Component {
           value={this.state.longitude}
           onChangeText={longitude => this.setState({ longitude })}
         />
-        <View style={{ alignItems: 'center' }}>
+        <View style={{ alignItems: "center" }}>
           <Button
             text="Use Current Location"
             style={{ marginBottom: 20 }}
