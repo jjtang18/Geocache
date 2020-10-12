@@ -7,7 +7,6 @@ export const geoFetch = (path, options = {}) => {
         return res.json();
       }
 
-        })
       throw new Error('Something went wrong... please try again.');
     })
     .catch(error => {
